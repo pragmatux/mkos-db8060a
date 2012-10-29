@@ -1,0 +1,18 @@
+[general]
+arch=armel
+noauth=true
+unpack=true
+cleanup=true
+omitrequired=true
+markauto=true
+bootstrap=ptux emdebian
+aptsources=
+
+[ptux]
+source=http://packages.pragmatux.org/device
+suite=alpha
+packages={{package}}
+
+[emdebian]
+source=http://emdebian.org/grip
+suite=squeeze

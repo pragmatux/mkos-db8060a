@@ -1,0 +1,13 @@
+mkos-db8060a (1.1) unstable; urgency=low
+
+  * Take config as option, root package as arg, and handle errors
+  * Fix lintian warnings
+  * Use smaller filesystem size, 512 MiB
+
+ -- Ryan Kuester <rkuester@insymbols.com>  Mon, 29 Oct 2012 06:52:43 +0000
+
+mkos-db8060a (1.0) unstable; urgency=low
+
+  * Initial release
+
+ -- Ryan Kuester <rkuester@insymbols.com>  Wed, 17 Oct 2012 22:58:28 +0000
