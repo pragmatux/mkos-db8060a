@@ -1,3 +1,11 @@
+mkos-db8060a (2.0) unstable; urgency=low
+
+  * Change option for specifying a config file to "-c"
+  * Add "-C" option for printing default config template
+  * Point at package sources of new distribution "bravo"
+
+ -- Ryan Kuester <rkuester@insymbols.com>  Mon, 18 Feb 2013 21:47:23 +0000
+
 mkos-db8060a (1.1) unstable; urgency=low
 
   * Take config as option, root package as arg, and handle errors
