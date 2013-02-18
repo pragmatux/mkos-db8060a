@@ -8,7 +8,10 @@ die () {
 	exit 1
 }
 
-USAGE="${0##./}"' [-f config] [package]
+USAGE="${0##./}"' [-c config] [package]
+  Options:
+    -c config   use file <config> as alternate config template
+
   Environment:
     The command line takes precedence over the environment.
     MKOS_CONFIG  - multistrap configuration
@@ -19,7 +22,7 @@ test $(whoami) = "root" || die "error: must be root or preferably fakeroot"
 while [ "$#" != 0 ]
 do
 	case "$1,${2-}" in
-		-f,?*)
+		-c,?*)
 			TEMPLATE="$2"
 			shift
 			shift
