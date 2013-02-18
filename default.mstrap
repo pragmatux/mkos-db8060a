@@ -5,14 +5,19 @@ unpack=true
 cleanup=true
 omitrequired=true
 markauto=true
-bootstrap=ptux emdebian
+bootstrap=ptux emdebian debian
 aptsources=
 
 [ptux]
 source=http://packages.pragmatux.org/device
-suite=alpha
+suite=bravo
+components=main upstream
 packages={{package}}
 
 [emdebian]
 source=http://emdebian.org/grip
-suite=squeeze
+suite=wheezy-grip
+
+[debian]
+source=http://cdn.debian.net/debian
+suite=wheezy
