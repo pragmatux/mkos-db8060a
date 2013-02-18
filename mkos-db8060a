@@ -8,8 +8,9 @@ die () {
 	exit 1
 }
 
-USAGE="${0##./}"' [-c config] [package]
+USAGE="${0##./}"' [-C] [-c config] [package]
   Options:
+    -C          print default config template to stdout and exit
     -c config   use file <config> as alternate config template
 
   Environment:
@@ -18,10 +19,16 @@ USAGE="${0##./}"' [-c config] [package]
     MKOS_PACKAGE - root package
 '
 
-test $(whoami) = "root" || die "error: must be root or preferably fakeroot"
+DEFAULT_CONFIG=/usr/share/mkos-db8060a/default.mstrap
+DEFAULT_PACKAGE=device-db8060a
+
 while [ "$#" != 0 ]
 do
 	case "$1,${2-}" in
+		-C,*)
+			cat $DEFAULT_CONFIG
+			exit
+			;;
 		-c,?*)
 			TEMPLATE="$2"
 			shift
@@ -37,8 +44,10 @@ do
 			;;
 	esac
 done
-: ${TEMPLATE:=${MKOS_CONFIG-/usr/share/mkos-db8060a/default.mstrap}}
-: ${PACKAGE:=${MKOS_PACKAGE-device-db8060a}}
+
+: ${TEMPLATE:=${MKOS_CONFIG-$DEFAULT_CONFIG}}
+: ${PACKAGE:=${MKOS_PACKAGE-$DEFAULT_PACKAGE}}
+test $(whoami) = "root" || die "error: must be root or preferably fakeroot"
 test -r "$TEMPLATE" || die "error: file $TEMPLATE is unreadable"
 IMAGE=ptux.img
 test ! -e "$IMAGE" || die "error: refusing to overwrite $IMAGE"
