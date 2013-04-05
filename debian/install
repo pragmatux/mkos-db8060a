@@ -1,2 +1,2 @@
 mkos-db8060a usr/bin
-default.mstrap usr/share/mkos-db8060a
+default.mstrap preferences usr/share/mkos-db8060a
